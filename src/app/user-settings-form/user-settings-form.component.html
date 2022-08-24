@@ -1,9 +1,11 @@
 <div class="container">
     <h2>User Settings</h2>
-    <form #form="ngForm">
+    <form #form="ngForm" ngNativeValidate>
         <div class="form-group">
             <label for="name">Name</label>
-            <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name">
+            <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name"
+            required>
+            <!--required pattern="B.*" type="number" min="2" max="100">-->
         </div>
 
         <div class="form-check">
@@ -76,4 +78,4 @@
     </form>
 </div>
 
-<h5>{{ userSettings | json}}</h5>
+<h5>{{ originalUserSettings | json}}</h5>
