@@ -1,21 +1,33 @@
 <div class="container">
     <h2>User Settings</h2>
-    <form #form="ngForm" ngNativeValidate>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
         <div class="form-group">
             <label for="name">Name</label>
             <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name"
-            required #propertyTest = "ngModel">
+                required #nameField = "ngModel" 
+                [class.field-error]="form.submitted && nameField.invalid">
+            
+            <div [hidden]="!form.submitted || nameField.valid"
+                class="alert alert-danger">
+                Enter a name
+            </div>
+
+            <!-- Classes & associated NgModel Properties
+            #propertyTest = "ngModel">
 
             <h3>dirty: {{ propertyTest.dirty }}</h3>
-            <h3>touched: {{ propertyTest.touched }}</h3>
+            
             <h3>untouched: {{ propertyTest.untouched }}</h3>
             <h3>valid: {{ propertyTest.valid }}</h3>
             <h3>invalid: {{ propertyTest.invalid }}</h3>
+            -->
 
-            <!-- #testClass>
+            <!-- CSS classes for validation
+                #testClass>
             {{testClass.className}}-->
 
-            <!--required pattern="B.*" type="number" min="2" max="100">-->
+            <!-- HTML Field Validation
+            required pattern="B.*" type="number" min="2" max="100">-->
         </div>
 
         <div class="form-check">
