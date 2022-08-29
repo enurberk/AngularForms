@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { DataService } from '../data/data.service';
 import { UserSettings } from '../data/user-settings';
 
@@ -21,10 +22,12 @@ export class UserSettingsFormComponent implements OnInit {
   userSettings: UserSettings = { ...this.originalUserSettings };
   postError = false;
   postErrorMessage = '';
+  subscriptionTypes: any;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.subscriptionTypes = this.dataService.getSubscriptionTypes();
   }
 
   //onBlur eventi kullanıldı, spesifik alanların kontrolu için kullanılır

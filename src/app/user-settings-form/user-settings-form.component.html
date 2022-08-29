@@ -3,13 +3,11 @@
     <form #form="ngForm" (ngSubmit)="onSubmit(form)">
         <div class="form-group">
             <label for="name">Name</label>
-            <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name"
-                required #nameField = "ngModel"
-                (blur)="onBlur(nameField)" 
+            <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name" required
+                #nameField="ngModel" (blur)="onBlur(nameField)"
                 [class.field-error]="form.submitted && nameField.invalid">
-            
-            <div [hidden]="!form.submitted || nameField.valid"
-                class="alert alert-danger">
+
+            <div [hidden]="!form.submitted || nameField.valid" class="alert alert-danger">
                 Enter a name
             </div>
 
@@ -66,9 +64,9 @@
             <label for="subscriptionType">Subscription Type</label>
             <select class="form-select form-select-sm" id="subscriptionType" name="subscriptionType"
                 [(ngModel)]="userSettings.subcscriptionType">
-                <option>Monthly</option>
-                <option>Annual</option>
-                <option>Lifetime</option>
+                <option *ngFor="let type of subscriptionTypes | async">
+                    {{ type }}
+                </option>
             </select>
         </div>
 
@@ -95,8 +93,7 @@
         </div>
         -->
 
-        <div [hidden]="!postError"
-            class="alert alert-danger">
+        <div [hidden]="!postError" class="alert alert-danger">
             {{postErrorMessage}}
         </div>
         <button class="btn btn-primary">Send</button>
