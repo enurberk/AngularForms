@@ -1,87 +1,94 @@
 <div class="container">
-    <h2>User Settings</h2>
-    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name" required
-                #nameField="ngModel" (blur)="onBlur(nameField)"
-                [class.field-error]="form.submitted && nameField.invalid">
+  <h2>User Settings</h2>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name" required #nameField="ngModel"
+        (blur)="onBlur(nameField)" [class.field-error]="form.submitted && nameField.invalid">
 
-            <div [hidden]="!form.submitted || nameField.valid" class="alert alert-danger">
-                Enter a name
-            </div>
-
-            <!-- Classes & associated NgModel Properties
+      <div [hidden]="!form.submitted || nameField.valid" class="alert alert-danger">
+        Enter a name
+      </div>
+      <!-- Classes & associated NgModel Properties
             #propertyTest = "ngModel">
 
             <h3>dirty: {{ propertyTest.dirty }}</h3>
-            
+
             <h3>untouched: {{ propertyTest.untouched }}</h3>
             <h3>valid: {{ propertyTest.valid }}</h3>
             <h3>invalid: {{ propertyTest.invalid }}</h3>
             -->
 
-            <!-- CSS classes for validation
+      <!-- CSS classes for validation
                 #testClass>
             {{testClass.className}}-->
 
-            <!-- HTML Field Validation
+      <!-- HTML Field Validation
             required pattern="B.*" type="number" min="2" max="100">-->
-        </div>
+    </div>
 
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="emailOffers" name="emailOffers"
-                [(ngModel)]="userSettings.emailOffers">
-            <label class="form-check-label" for="emailOffers">
-                Email Special Offers
-            </label>
-        </div>
+    <div class="form-group">
+      <button type="button" class="btn btn-primary" name="singleModel"
+      [(ngModel)]="singleModel" btnCheckbox
+        btnCheckboxTrue="On"
+        btnCheckboxFalse="Off">
+        {{ singleModel }}
+      </button>
+    </div>
 
-        <h5>User Interface Style</h5>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="interfaceStyle" id="lightInterface" value="light"
-                [(ngModel)]="userSettings.interfaceStyle">
-            <label class="form-check-label" for="lightInterface">
-                Light
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="interfaceStyle" id="mediumInterface" value="medium"
-                [(ngModel)]="userSettings.interfaceStyle">
-            <label class="form-check-label" for="mediumInterface">
-                Medium
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="interfaceStyle" id="darkInterface" value="dark"
-                [(ngModel)]="userSettings.interfaceStyle">
-            <label class="form-check-label" for="darkInterface">
-                Dark
-            </label>
-        </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="emailOffers" name="emailOffers"
+        [(ngModel)]="userSettings.emailOffers">
+      <label class="form-check-label" for="emailOffers">
+        Email Special Offers
+      </label>
+    </div>
 
-        <div class="form-group">
-            <label for="subscriptionType">Subscription Type</label>
-            <select class="form-select form-select-sm" id="subscriptionType" name="subscriptionType"
-                [(ngModel)]="userSettings.subcscriptionType">
-                <option *ngFor="let type of subscriptionTypes | async">
-                    {{ type }}
-                </option>
-            </select>
-        </div>
+    <h5>User Interface Style</h5>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="interfaceStyle" id="lightInterface" value="light"
+        [(ngModel)]="userSettings.interfaceStyle">
+      <label class="form-check-label" for="lightInterface">
+        Light
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="interfaceStyle" id="mediumInterface" value="medium"
+        [(ngModel)]="userSettings.interfaceStyle">
+      <label class="form-check-label" for="mediumInterface">
+        Medium
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="interfaceStyle" id="darkInterface" value="dark"
+        [(ngModel)]="userSettings.interfaceStyle">
+      <label class="form-check-label" for="darkInterface">
+        Dark
+      </label>
+    </div>
 
-        <div class="form-group">
-            <label for="notes">Notes</label>
-            <textarea class="form-control" name="notes" id="notes" rows="3" [(ngModel)]="userSettings.notes">
+    <div class="form-group">
+      <label for="subscriptionType">Subscription Type</label>
+      <select class="form-select form-select-sm" id="subscriptionType" name="subscriptionType"
+        [(ngModel)]="userSettings.subcscriptionType">
+        <option *ngFor="let type of subscriptionTypes | async">
+          {{ type }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="notes">Notes</label>
+      <textarea class="form-control" name="notes" id="notes" rows="3" [(ngModel)]="userSettings.notes">
             </textarea>
-        </div>
+    </div>
 
-        <!--
+    <!--
         <div class="form-group">
             <label for="password">Password</label>
             <input type="password" class="form-control" name="password" id="password" ngModel>
         </div>
-  
+
         <div class="form-group">
             <label for="date">Date</label>
             <input type="date" class="form-control" name="date" id="date" >
@@ -93,11 +100,11 @@
         </div>
         -->
 
-        <div [hidden]="!postError" class="alert alert-danger">
-            {{postErrorMessage}}
-        </div>
-        <button class="btn btn-primary">Send</button>
-    </form>
+    <div [hidden]="!postError" class="alert alert-danger">
+      {{postErrorMessage}}
+    </div>
+    <button class="btn btn-primary">Send</button>
+  </form>
 </div>
 
 <h5>{{ userSettings | json}}</h5>

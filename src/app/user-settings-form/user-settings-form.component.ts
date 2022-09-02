@@ -11,6 +11,8 @@ import { UserSettings } from '../data/user-settings';
 })
 export class UserSettingsFormComponent implements OnInit {
 
+  singleModel = 'On';
+
   originalUserSettings: UserSettings = {
     name: null,
     emailOffers: null,
@@ -46,7 +48,7 @@ export class UserSettingsFormComponent implements OnInit {
     }
     else{
       this.postError = true;
-      this.postErrorMessage = 'Please fix the errors.';      
+      this.postErrorMessage = 'Please fix the errors.';
     }
 
   }
