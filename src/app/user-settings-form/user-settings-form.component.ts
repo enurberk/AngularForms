@@ -12,7 +12,7 @@ import { UserSettings } from '../data/user-settings';
 export class UserSettingsFormComponent implements OnInit {
 
   singleModel = 'On';
-
+  startDate: Date | undefined;
   originalUserSettings: UserSettings = {
     name: null,
     emailOffers: null,
@@ -30,6 +30,7 @@ export class UserSettingsFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscriptionTypes = this.dataService.getSubscriptionTypes();
+    this.startDate = new Date();
   }
 
   //onBlur eventi kullanıldı, spesifik alanların kontrolu için kullanılır
