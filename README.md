@@ -1,5 +1,9 @@
 # AngularForms
 
+**Instance of Project Page;**
+
+<img width="475" alt="angularform" src="https://user-images.githubusercontent.com/37108233/188393300-bef43823-7874-4a8c-843a-32219a4b167a.PNG">
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
 
 ## Development server
