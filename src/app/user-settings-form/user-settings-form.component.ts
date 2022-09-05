@@ -12,10 +12,14 @@ import { UserSettings } from '../data/user-settings';
   styleUrls: ['./user-settings-form.component.css']
 })
 export class UserSettingsFormComponent implements OnInit {
-
   singleModel = 'On';
+
   startDate: Date | undefined;
   startTime: Date | undefined;
+
+  userRating = 0;
+  maxRating = 10;
+
   originalUserSettings: UserSettings = {
     name: null,
     emailOffers: null,

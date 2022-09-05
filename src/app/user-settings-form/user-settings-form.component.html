@@ -40,7 +40,13 @@
       <timepicker [(ngModel)]="startTime" name="startTime" id="startTime">
       </timepicker>
     </div>
-    Start Time: {{ startTime }}
+
+    <div class="form-group">
+      <rating [(ngModel)]="userRating" [max]="maxRating"
+        name="userRating" id="userRating"
+        [titles]="['one','two','three']"></rating>
+    </div>
+    User Rating: {{userRating}}
 
     <div class="form-group">
       <button type="button" class="btn btn-primary" name="singleModel" [(ngModel)]="singleModel" btnCheckbox
