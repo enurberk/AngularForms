@@ -39,17 +39,18 @@ export class UserSettingsFormComponent implements OnInit {
 
   //Form gönderildiğinde formu kontrol etmek için kullanılır
   onSubmit(form: NgForm) {
-    console.log('in onSubmit: ', form.valid);
-    if (form.valid) {
-      this.dataService.postUserSettingsForm(this.userSettings).subscribe({
-        next: (result) => console.log('success: ', result),
-        error: (err) => this.onHttpError(err)
-      });
-    }
-    else{
-      this.postError = true;
-      this.postErrorMessage = 'Please fix the errors.';
-    }
+    console.log('in onSubmit: ', form.value);
+    // console.log('in onSubmit: ', form.valid);
+    // if (form.valid) {
+    //   this.dataService.postUserSettingsForm(this.userSettings).subscribe({
+    //     next: (result) => console.log('success: ', result),
+    //     error: (err) => this.onHttpError(err)
+    //   });
+    // }
+    // else{
+    //   this.postError = true;
+    //   this.postErrorMessage = 'Please fix the errors.';
+    // }
 
   }
 
