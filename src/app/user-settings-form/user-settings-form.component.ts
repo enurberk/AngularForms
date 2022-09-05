@@ -1,6 +1,8 @@
+import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { TimeInterval } from 'rxjs/internal/operators/timeInterval';
 import { DataService } from '../data/data.service';
 import { UserSettings } from '../data/user-settings';
 
@@ -13,6 +15,7 @@ export class UserSettingsFormComponent implements OnInit {
 
   singleModel = 'On';
   startDate: Date | undefined;
+  startTime: Date | undefined;
   originalUserSettings: UserSettings = {
     name: null,
     emailOffers: null,
@@ -31,6 +34,7 @@ export class UserSettingsFormComponent implements OnInit {
   ngOnInit(): void {
     this.subscriptionTypes = this.dataService.getSubscriptionTypes();
     this.startDate = new Date();
+    this.startTime = new Date();
   }
 
   //onBlur eventi kullanıldı, spesifik alanların kontrolu için kullanılır

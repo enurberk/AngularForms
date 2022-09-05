@@ -34,7 +34,13 @@
               [(ngModel)]="startDate" name="startDate" id="startDate"
               bsDaterangepicker>
     </div>
-    Start Date: {{ startDate }}
+
+    <div class="form-group">
+      <label for="startTime">Start Time</label>
+      <timepicker [(ngModel)]="startTime" name="startTime" id="startTime">
+      </timepicker>
+    </div>
+    Start Time: {{ startTime }}
 
     <div class="form-group">
       <button type="button" class="btn btn-primary" name="singleModel" [(ngModel)]="singleModel" btnCheckbox
